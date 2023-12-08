@@ -6,6 +6,7 @@ require("dotenv").config();
 const ecommerceRouter = require("./routes/ecommerce");
 const musicRouter = require("./routes/music");
 const jokesRouter = require("./routes/jokes");
+const weatherroute = require('./routes/weather');
 const verify = require('./verification.js')
 const app = express();
 const port = process.env.PORT || 3000;
@@ -38,6 +39,7 @@ app.use(verify);
 app.use("/ecommerce", ecommerceRouter);
 app.use("/music", musicRouter);
 app.use("/jokes",jokesRouter); 
+app.use("/weather",weatherroute); 
 
 app.get("/", (req, res) => {
   res.send("Welcome to Santhosh Technologies Api Hub");
