@@ -2,16 +2,16 @@ const router = require('express').Router();
 const axios = require('axios');
 
 
-router.route('/location/:q').get((req, res) => {
+router.route('/search/:q').get((req, res) => {
   const location = req.params.q;
   if(location){
 	try{
-		axios.get(`http://api.weatherapi.com/v1/current.json?key=4eb4ab0d897a459b9d962812230812&q=${location}`)
+		axios.get(`https://newsapi.org/v2/everything?q=${location}&apiKey=e68a7f5075ef4c758ebf72a969a1b671`)
 		.then((result)=>{
 			res.status(200).json(result.data);
 		})
 		.catch(err=>{
-			res.status(400).json({message:"Location Not Found"});
+			res.status(400).json({message:"Keyword Not Found"});
 		})
 	  }
 	  catch(e){
@@ -19,7 +19,7 @@ router.route('/location/:q').get((req, res) => {
 	  }
   }
   else{
-		res.status(402).json("q param required for location based weather report.");
+		res.status(402).json("param required for keyword based news fetch.");
   }
  
  
