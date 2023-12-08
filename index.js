@@ -8,6 +8,13 @@ const musicRouter = require("./routes/music");
 const jokesRouter = require("./routes/jokes");
 const weatherroute = require('./routes/weather');
 const newsroute = require('./routes/news');
+const sportsroute = require('./routes/sports');
+const universityroute = require('./routes/university');
+const randomuserroute = require('./routes/randomuser');
+const quotesroute = require('./routes/quotes');
+const stocksroute = require('./routes/stocks');
+const currencyroute = require('./routes/currencyconverter');
+const dictionaryroute = require('./routes/words');
 const verify = require('./verification.js')
 const app = express();
 const port = process.env.PORT || 3000;
@@ -42,6 +49,13 @@ app.use("/music", musicRouter);
 app.use("/jokes",jokesRouter); 
 app.use("/weather",weatherroute); 
 app.use("/news",newsroute); 
+app.use("/sports",sportsroute);
+app.use("/university",universityroute); 
+app.use("/randomuser",randomuserroute); 
+app.use("/quotes",quotesroute); 
+app.use("/stocks",stocksroute); 
+app.use("/currency",currencyroute); 
+app.use("/dictionary",dictionaryroute); 
 
 app.get("/", (req, res) => {
   res.send("Welcome to Santhosh Technologies Api Hub");
