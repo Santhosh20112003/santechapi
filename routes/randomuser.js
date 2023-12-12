@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const axios = require('axios');
+const randomcheck = require('../check/randomuser');
 
 
-router.route('/').get((req, res) => {
+router.route('/').get(randomcheck,(req, res) => {
   
 	try{
 		axios.get(`https://randomuser.me/api/`)

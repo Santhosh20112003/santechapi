@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const axios = require('axios');
+const weathercheck = require('../check/weather');
 
 
-router.route('/location/:q').get((req, res) => {
+router.route('/location/:q').get(weathercheck,(req, res) => {
   const location = req.params.q;
   if(location){
 	try{

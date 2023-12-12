@@ -15,7 +15,8 @@ const quotesroute = require('./routes/quotes');
 const stocksroute = require('./routes/stocks');
 const currencyroute = require('./routes/currencyconverter');
 const dictionaryroute = require('./routes/words');
-const verify = require('./verification.js')
+const verify = require('./verification.js');
+const ecommercecheck = require('./check/ecommerce');
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -44,7 +45,7 @@ mongoose
     process.exit(1); 
   });
 app.use(verify);
-app.use("/ecommerce", ecommerceRouter);
+app.use("/ecommerce",ecommercecheck, ecommerceRouter);
 app.use("/music", musicRouter);
 app.use("/jokes",jokesRouter); 
 app.use("/weather",weatherroute); 

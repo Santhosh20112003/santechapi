@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const axios = require('axios');
+const quotescheck = require('../check/quotes');
 
 
-router.route('/').get((req, res) => {
+router.route('/').get(quotescheck,(req, res) => {
   
 	try{
 		axios.get(`https://zenquotes.io/api/quotes`)

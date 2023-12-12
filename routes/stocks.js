@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const axios = require('axios');
+const stockscheck = require('../check/stocks');
 
 
-router.route('/company/symbol/:q').get((req, res) => {
+router.route('/company/symbol/:q').get(stockscheck,(req, res) => {
   const location = req.params.q;
   if(location){
 	try{

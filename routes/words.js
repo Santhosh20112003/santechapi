@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const axios = require('axios');
+const dictionarycheck = require('../check/words');
 
 
-router.route('/search/:q').get((req, res) => {
+router.route('/search/:q').get(dictionarycheck,(req, res) => {
   const location = req.params.q;
   if(location){
 	try{

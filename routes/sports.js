@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const axios = require('axios');
+const sportscheck = require('../check/sports');
 
 
-router.route('/player/:q').get((req, res) => {
+router.route('/player/:q').get(sportscheck,(req, res) => {
   const location = req.params.q;
   if(location){
 	try{

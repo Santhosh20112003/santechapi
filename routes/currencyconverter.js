@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const axios = require('axios');
+const currencycheck = require('../check/currencyconverter');
 
 
-router.route('/:from/:to/:amount').get((req, res) => {
+router.route('/:from/:to/:amount').get(currencycheck,(req, res) => {
   const from = req.params.from;
   const to = req.params.to;
   const amount = req.params.amount;

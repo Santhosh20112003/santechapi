@@ -1,8 +1,9 @@
 const router = require('express').Router();
 const axios = require('axios');
+const universitycheck = require('../check/university');
 
 
-router.route('/country/:q').get((req, res) => {
+router.route('/country/:q').get(universitycheck,(req, res) => {
   const location = req.params.q;
   if(location){
 	try{
