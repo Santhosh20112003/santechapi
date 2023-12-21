@@ -9,7 +9,7 @@ router.route('/search/:q').get(imagescheck,(req, res) => {
 	try{
 		axios.get(`http://source.unsplash.com/random/1000x900/?${location}`)
 		.then((result)=>{
-				res.status(200).json(result.data);			
+				res.send(result.data);			
 		})
 		.catch(err=>{
 			res.status(400).json({message:"Error Occured during Fetching."});

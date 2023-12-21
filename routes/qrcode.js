@@ -9,7 +9,7 @@ router.route('/:q').get(qrcodecheck,(req, res) => {
 	try{
 		axios.get(`https://api.qrserver.com/v1/create-qr-code/?data=${location}&size=100x100`)
 		.then((result)=>{
-			res.status(200).json(result.data);
+			res.send(result.data);
 		})
 		.catch(err=>{
 			res.status(400).json({message:"Unable to Convert."});
