@@ -9,7 +9,7 @@ router.route('/country/:q').get(universitycheck,(req, res) => {
 	try{
 		axios.get(`http://universities.hipolabs.com/search?country=${location}`)
 		.then((result)=>{
-			if(result.status === 200 && result.data.length > 1){
+			if(result.status === 200 && result.data. > 1){
 				res.status(200).json(result.data);
 			}
 			else{
