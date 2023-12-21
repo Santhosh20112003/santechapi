@@ -22,6 +22,7 @@ const animedetailsroute =  require('./routes/animedetails');
 const booksroute =  require('./routes/books');
 const imagesroute = require('./routes/images');
 const mapsroute =  require('./routes/maps');
+const reciperoute =  require('./routes/recipe');
 const verify = require('./verification.js');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -70,6 +71,7 @@ app.use("/animedetails",animedetailsroute);
 app.use("/books",booksroute);
 app.use("/maps",mapsroute);
 app.use("/images",imagesroute);
+app.use("/recipe",reciperoute);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Santhosh Technologies Api Hub");
