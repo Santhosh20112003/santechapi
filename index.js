@@ -18,6 +18,7 @@ const dictionaryroute = require('./routes/words');
 const genderizeroute = require('./routes/genderize');
 const qrcoderoute = require('./routes/qrcode');
 const onlinegamesroute = require('./routes/onlinegames');
+const animedetailsroute =  require('./routes/animedetails');
 const verify = require('./verification.js');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -62,6 +63,7 @@ app.use("/dictionary",dictionaryroute);
 app.use("/genderize",genderizeroute); 
 app.use("/qrcode",qrcoderoute); 
 app.use("/onlinegames",onlinegamesroute); 
+app.use("/animedetails",animedetailsroute);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Santhosh Technologies Api Hub");
