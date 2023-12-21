@@ -59,7 +59,7 @@ app.use("/stocks",stocksroute);
 app.use("/currency",currencyroute); 
 app.use("/dictionary",dictionaryroute); 
 app.use("/genderize",genderizeroute); 
-app.use("/qrcode-generate",qrcoderoute); 
+app.use("/qrcode",qrcoderoute); 
 
 app.get("/", (req, res) => {
   res.send("Welcome to Santhosh Technologies Api Hub");
