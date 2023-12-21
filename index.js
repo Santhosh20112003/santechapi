@@ -20,6 +20,7 @@ const qrcoderoute = require('./routes/qrcode');
 const onlinegamesroute = require('./routes/onlinegames');
 const animedetailsroute =  require('./routes/animedetails');
 const booksroute =  require('./routes/books');
+const imagesroute = require('./routes/images');
 const mapsroute =  require('./routes/maps');
 const verify = require('./verification.js');
 const app = express();
@@ -68,6 +69,7 @@ app.use("/onlinegames",onlinegamesroute);
 app.use("/animedetails",animedetailsroute);
 app.use("/books",booksroute);
 app.use("/maps",mapsroute);
+app.use("/images",imagesroute);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Santhosh Technologies Api Hub");
