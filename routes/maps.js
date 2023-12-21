@@ -9,7 +9,12 @@ router.route('/city/:q').get(mapscheck,(req, res) => {
 	try{
 		axios.get(`https://nominatim.openstreetmap.org/search.php?format=jsonv2&city=${data}`)
 		.then((result)=>{
-			res.status(200).json(result.data);
+			if(result.status === 200 && result.data.length > 1){
+				res.status(200).json(result.data);
+			}
+			else{
+				res.status(404).json({message:"City Not Found"});
+			}
 		})
 		.catch(err=>{
 			res.status(400).json({message:"City Not Found"});
@@ -32,7 +37,12 @@ router.route('/country/:q').get(mapscheck,(req, res) => {
 	  try{
 		  axios.get(`https://nominatim.openstreetmap.org/search.php?format=jsonv2&country=${data}`)
 		  .then((result)=>{
-			  res.status(200).json(result.data);
+			if(result.status === 200 && result.data.length > 1){
+				res.status(200).json(result.data);
+			}
+			else{
+				res.status(404).json({message:"Country Not Found"});
+			}
 		  })
 		  .catch(err=>{
 			  res.status(400).json({message:"Country Not Found"});
@@ -55,7 +65,12 @@ router.route('/state/:q').get(mapscheck,(req, res) => {
 	  try{
 		  axios.get(`https://nominatim.openstreetmap.org/search.php?format=jsonv2&state=${data}`)
 		  .then((result)=>{
-			  res.status(200).json(result.data);
+			if(result.status === 200 && result.data.length > 1){
+				res.status(200).json(result.data);
+			}
+			else{
+				res.status(404).json({message:"State Not Found"});
+			}
 		  })
 		  .catch(err=>{
 			  res.status(400).json({message:"State Not Found"});
@@ -79,7 +94,12 @@ router.route('/state/:q').get(mapscheck,(req, res) => {
 	  try{
 		  axios.get(`https://nominatim.openstreetmap.org/search.php?format=jsonv2&city=${data}&street=${street}`)
 		  .then((result)=>{
-			  res.status(200).json(result.data);
+			if(result.status === 200 && result.data.length > 1){
+				res.status(200).json(result.data);
+			}
+			else{
+				res.status(404).json({message:"Street Not Found"});
+			}
 		  })
 		  .catch(err=>{
 			  res.status(400).json({message:"Street Not Found"});
