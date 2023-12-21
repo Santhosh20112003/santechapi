@@ -5,10 +5,10 @@ const newscheck = require('../check/qrcode');
 
 router.route('/:size/:q').get(newscheck,(req, res) => {
   const location = req.params.q;
-  const size = req.params.size
+  const size = req.params.size;
   if(location && size){
 	try{
-		axios.get(`https://api.qrserver.com/v1/create-qr-code/?data=${data}!&size=${size}`)
+		axios.get(`https://api.qrserver.com/v1/create-qr-code/?data=${location}&size=${size}`)
 		.then((result)=>{
 			res.status(200).json(result.data);
 		})
