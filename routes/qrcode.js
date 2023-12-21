@@ -3,12 +3,11 @@ const axios = require('axios');
 const qrcodecheck = require('../check/qrcode');
 
 
-router.route('/:s/:q').get(qrcodecheck,(req, res) => {
+router.route('/:q').get(qrcodecheck,(req, res) => {
   const location = req.params.q;
-  const size = req.params.s;
   if(location){
 	try{
-		axios.get(`https://api.qrserver.com/v1/create-qr-code/?data=${location}&size=${size}`)
+		axios.get(`https://api.qrserver.com/v1/create-qr-code/?data=${location}&size=100x100`)
 		.then((result)=>{
 			res.status(200).json(result.data);
 		})
