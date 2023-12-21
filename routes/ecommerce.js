@@ -26,19 +26,5 @@ router.route('/category').get(ecommercecheck,(req, res) => {
     .catch(err => res.status(400).json('Error retrieving the categories: ' + err));
 });
 
-// router.route("/add").post((req,res)=>{
-// 	const id = req.body.id;
-// 	const title = req.body.title;
-// 	const price = Number(req.body.price);
-// 	const description = Date.parse(req.body.description);
-// 	const category = Date.parse(req.body.category);
-// 	const image = Date.parse(req.body.image);
-// 	const newEcommerce = new Ecommerce({id,title,price,description,category,image});
-// 	newEcommerce.save().then(()=>{
-// 	  res.json(' Item Added');
-// 	}).catch((err)=>{
-// 	  res.status(400).json('Error'+err)
-// 	});
-//   })
 
 module.exports = router;
