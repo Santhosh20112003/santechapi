@@ -24,6 +24,7 @@ const imagesroute = require('./routes/images');
 const mapsroute =  require('./routes/maps');
 const reciperoute =  require('./routes/recipe');
 const giphyroute =  require('./routes/giphy');
+const movieandseriesroute = require('./routes/movie');
 const verify = require('./verification.js');
 const app = express();
 const port = process.env.PORT || 3000;
@@ -74,6 +75,7 @@ app.use("/maps",mapsroute);
 app.use("/images",imagesroute);
 app.use("/recipe",reciperoute);
 app.use("/multimedia",giphyroute);
+app.use("/imdb",movieandseriesroute);
 
 app.get("/", (req, res) => {
   res.send("Welcome to Santhosh Technologies Api Hub");
