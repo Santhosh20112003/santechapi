@@ -18,7 +18,7 @@ router.route('/movie/:q').get(moviecheck, async (req, res) => {
 		}
 	  });
   
-	  if (response.data.length > 0) {
+	  if (response.data) {
 		res.status(200).json(response.data);
 	  } else {
 		res.status(400).json({ message: "Movie Not Found" });
