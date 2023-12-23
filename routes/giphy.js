@@ -3,50 +3,52 @@ const axios = require('axios');
 const giphycheck = require('../check/giphy');
 
 
-router.route('/stickers/:q').get(giphycheck,(req, res) => {
-  const name = req.params.q;
-  if(name){
-	try{
-		axios.get(`https://api.giphy.com/v1/stickers/search?api_key=MLobe1GNb397dCWa1nT87zd74IticDR7&q=${name}`)
-		.then((result)=>{
-			res.status(200).json(result.data);
-		})
-		.catch(err=>{
-			res.status(400).json({message:"Keyword Not Found"});
-		})
-	  }
-	  catch(e){
-		res.status(500).json("Error Occured in Backend")
-	  }
-  }
-  else{
-		res.status(402).json("param required for fetching Stickers.");
-  }
- 
- 
-});
-
-router.route('/giphy/:q').get(giphycheck,(req, res) => {
+router.route('/stickers/:q').get(giphycheck, async (req, res) => {
 	const name = req.params.q;
-	if(name){
-	  try{
-		  axios.get(`api.giphy.com/v1/giphy/search?api_key=MLobe1GNb397dCWa1nT87zd74IticDR7&q=${name}`)
-		  .then((result)=>{
-			  res.status(200).json(result.data);
-		  })
-		  .catch(err=>{
-			  res.status(400).json({message:"Keyword Not Found"});
-		  })
+	try {
+	  if (!name) {
+		return res.status(402).json("param required for fetching stickers.");
+	  }
+  
+	  const response = await axios.get(`https://api.giphy.com/v1/stickers/search`, {
+		params: {
+		  api_key: "MLobe1GNb397dCWa1nT87zd74IticDR7",
+		  q: name
 		}
-		catch(e){
-		  res.status(500).json("Error Occured in Backend")
+	  });
+  
+	  if (response.data.data.length > 0) {
+		res.status(200).json(response.data);
+	  } else {
+		res.status(400).json({ message: "Keyword Not Found" });
+	  }
+	} catch (err) {
+	  res.status(500).json("Error Occurred in Backend");
+	}
+  });
+
+router.route('/giphy/:q').get(giphycheck, async (req, res) => {
+	const name = req.params.q;
+	try {
+	  if (!name) {
+		return res.status(402).json("param required for fetching Giphy.");
+	  }
+  
+	  const response = await axios.get(`https://api.giphy.com/v1/gifs/search`, {
+		params: {
+		  api_key: "MLobe1GNb397dCWa1nT87zd74IticDR7",
+		  q: name
 		}
+	  });
+  
+	  if (response.data.data.length > 0) {
+		res.status(200).json(response.data);
+	  } else {
+		res.status(400).json({ message: "Keyword Not Found" });
+	  }
+	} catch (err) {
+	  res.status(500).json("Error Occurred in Backend");
 	}
-	else{
-		  res.status(402).json("param required for fetching Giphy.");
-	}
-   
-   
   });
 
 
