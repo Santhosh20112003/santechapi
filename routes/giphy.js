@@ -7,7 +7,7 @@ router.route('/stickers/:q').get(giphycheck,(req, res) => {
   const name = req.params.q;
   if(name){
 	try{
-		axios.get(`api.giphy.com/v1/stickers/search?api_key=MLobe1GNb397dCWa1nT87zd74IticDR7&q=${name}`)
+		axios.get(`https://api.giphy.com/v1/stickers/search?api_key=MLobe1GNb397dCWa1nT87zd74IticDR7&q=${name}`)
 		.then((result)=>{
 			res.status(200).json(result.data.data.images);
 		})
