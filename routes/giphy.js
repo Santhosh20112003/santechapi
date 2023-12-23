@@ -9,7 +9,7 @@ router.route('/stickers/:q').get(giphycheck,(req, res) => {
 	try{
 		axios.get(`https://api.giphy.com/v1/stickers/search?api_key=MLobe1GNb397dCWa1nT87zd74IticDR7&q=${name}`)
 		.then((result)=>{
-			res.status(200).json(result.data.data);
+			res.status(200).json(result.data);
 		})
 		.catch(err=>{
 			res.status(400).json({message:"Keyword Not Found"});
