@@ -26,6 +26,7 @@ const reciperoute =  require('./routes/recipe');
 const giphyroute =  require('./routes/giphy');
 const movieandseriesroute = require('./routes/movie');
 const verify = require('./verification.js');
+const conversation = require('./routes/convertional')
 const app = express();
 const port = process.env.PORT || 3000;
 
@@ -75,6 +76,7 @@ app.use("/maps",mapsroute);
 app.use("/images",imagesroute);
 app.use("/recipe",reciperoute);
 app.use("/multimedia",giphyroute);
+app.use("/conversational",conversation);
 app.use("/imdb",movieandseriesroute);
 
 app.get("/", (req, res) => {
