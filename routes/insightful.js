@@ -29,7 +29,7 @@ router.get("/random", insightfulcheck, async (req, res) => {
   }
 });
 
-router.post("/fetchblogsbyuid", async (req, res) => {
+router.post("/fetchblogsbyuid",insightfulcheck, async (req, res) => {
   const { uid } = req.body;
 
   try {
