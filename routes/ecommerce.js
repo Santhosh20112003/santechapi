@@ -1,4 +1,4 @@
-const router = require('express').Router();
+const   router = require('express').Router();
 const ecommercecheck = require('../check/ecommerce');
 const Ecommerce = require('../models/ecommerce.model');
 
