@@ -28,6 +28,7 @@ const routes = {
   maps: require('./routes/maps'),
   recipe: require('./routes/recipe'),
   giphy: require('./routes/giphy'),
+  jarvis: require('./routes/Gemini'),
   movieandseries: require('./routes/movie'),
   conversational: require('./routes/convertional'),
 };
