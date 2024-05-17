@@ -13,7 +13,7 @@ router.get("/random", insightfulcheck, async (req, res) => {
       creation_time: blog.creation_time,
       image: blog.image,
       tag: blog.tag,
-      url: `https://insightfulblog.vercel.app/blog/${btoa(blog.blogid)}`,
+      url: `https://insightfulblog.vercel.app/blogs/${btoa(blog.blogid)}`,
     }));
 
     if (!posts || !Array.isArray(posts) || posts.length === 0) {
