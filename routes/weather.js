@@ -20,7 +20,7 @@ router.route('/location/:q').get(weathercheck,(req, res) => {
 	  }
   }
   else{
-		res.status(402).json("q param required for location based weather report.");
+		res.status(402).json("param required for location based weather report.");
   }
  
  

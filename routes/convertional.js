@@ -20,7 +20,7 @@ router.route('/:q').get(bookscheck,(req, res) => {
 	  }
   }
   else{
-		res.status(402).json("param required for Convertional conversation.");
+		res.status(402).json("param required for Conversational Api.");
   }
  
  

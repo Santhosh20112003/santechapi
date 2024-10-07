@@ -19,9 +19,7 @@ router.route("/:q").get(qrcodecheck, (req, res) => {
     //   }
     try {
       axios
-        .get(
-          `https://quickchart.io/qr?text=${location}&format=svg`
-        )
+        .get(`https://quickchart.io/qr?text=${location}&format=svg`)
         .then((result) => {
           res.send(result.data);
         })

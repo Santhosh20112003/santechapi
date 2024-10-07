@@ -17,7 +17,7 @@ router.route('/company/symbol/:q').get(stockscheck,(req, res) => {
 			}
 		})
 		.catch(err=>{
-			res.status(400).json({message:`Inavlid company symbol check the official BSE Symbol for ${location}`});
+			res.status(400).json({message:`Invalid company symbol check the official BSE Symbol for ${location}`});
 		})
 	  }
 	  catch(e){
@@ -25,7 +25,7 @@ router.route('/company/symbol/:q').get(stockscheck,(req, res) => {
 	  }
   }
   else{
-		res.status(402).json("param required for keyword based player details fetch.");
+		res.status(402).json("param required for keyword Stocks details fetch refer  .");
   }
  
  
