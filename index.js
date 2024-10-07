@@ -61,15 +61,13 @@ mongoose.connect(process.env.ATLAS_URI, {
   process.exit(1);
 });
 
+app.get("/", (req, res) => {
+  res.send("Welcome to Santech Api Endpoints");
+});
 
 app.use(verify); 
 Object.entries(routes).forEach(([routePath, routeHandler]) => {
   app.use(`/${routePath}`, routeHandler);
-});
-
-
-app.get("/", (req, res) => {
-  res.send("Welcome to Santhosh Technologies Api Hub");
 });
 
 app.get("*", (req, res) => {
